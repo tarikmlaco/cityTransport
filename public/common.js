@@ -8,13 +8,13 @@
       });
     var socket = io.connect(window.location.host/* + ':3000'*/);
     socket.on('welcome', function(data) {
-                $('#messages ul').append('<li>' + data.message + '</li>');
+                $('#messages').append('<p>' + data.message + '</p>');
 
                 socket.emit('i am client', {data: 'foo!'});
             });
       socket.on('time', function(data) {
                 console.log(data);
-                $('#messages ul').append('<li>' + data.time + '</li>');
+                $('#messages').append('<p>' + data.time + '</p>');
             });
       socket.on('error', function() { console.error(arguments) });
       socket.on('message', function() { console.log(arguments) });    
@@ -61,9 +61,9 @@
       function(data, status){
 //        console.log("Data: " + data + "\nStatus: " + status);
           if(data!=undefined){
-              $('#messages ul').html('');
+              $('#messages').html('');
               data.forEach(function(message){
-                  $('#messages ul').append('<li id="'+message._id+'">' + message.message + '</li>');
+                  $('#messages').append('<p id="'+message._id+'">' + message.user  + ': ' + message.message + '</p>');
               });
           }
       });}, 5000);
