@@ -84,13 +84,15 @@ footer ul li {
 }
 
 #messages ul {
-  width: 95%;
-  text-align: center;
-  margin: auto;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
 }
 
 #messages ul li {
-  display: inline-block;
+  display: table-cell;
+  width: auto;
+  text-align: center;
   border-bottom: 1px solid #eaeaea;
   margin-top: 20px;
 }
