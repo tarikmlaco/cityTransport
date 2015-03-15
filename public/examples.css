@@ -82,3 +82,9 @@ footer ul li {
   float: center;
   margin-left: 15px;
 }
+
+#messages ul li {
+  border-bottom: 1px solid #eaeaea;
+  margin-top: 20px;
+  text-align: center;
+}
