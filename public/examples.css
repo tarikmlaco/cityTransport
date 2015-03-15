@@ -89,12 +89,11 @@ footer ul li {
 }
 
 p.user {
-  border-bottom: 1px solid #eaeaea;
   font-weight: bold;
 }
 
 p.messagebody {
   text-align: justify;
   font-style: italic;
-  background: #eaeaea; 
+  background: #eaeaea;
 }
