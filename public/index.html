@@ -15,8 +15,8 @@
     $(document).ready(function(){
       map = new GMaps({
         el: '#map',
-        lat: 18.31453474,
-        lng: 43.84248732
+        lat: 43.84248732,
+        lng: 18.31453474
       });
 	  var socket = io.connect(window.location.host/* + ':3000'*/);
 	  socket.on('welcome', function(data) {
