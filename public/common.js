@@ -74,7 +74,15 @@
 
     
     });
-  
-  
-  
-  });
+
+        $('form').submit(function(e){
+            e.preventDefault();
+            var contents = $('#usermsg').val();
+            if(contents!=""&&contents!=undefined){
+                socket.emit('publicmsg', {sender: 'anonymous', message: contents});
+            }
+            $('#usermsg').val("");
+        });
+
+
+    });
