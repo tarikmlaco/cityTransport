@@ -8,13 +8,13 @@
       });
     var socket = io.connect(window.location.host/* + ':3000'*/);
     socket.on('welcome', function(data) {
-                $('#messages').append('<li>' + data.message + '</li>');
+                $('#messages ul').append('<li>' + data.message + '</li>');
 
                 socket.emit('i am client', {data: 'foo!'});
             });
       socket.on('time', function(data) {
                 console.log(data);
-                $('#messages').append('<li>' + data.time + '</li>');
+                $('#messages ul').append('<li>' + data.time + '</li>');
             });
       socket.on('error', function() { console.error(arguments) });
       socket.on('message', function() { console.log(arguments) });    
