@@ -32,6 +32,10 @@ io.sockets.on('connection', function(socket) {
     socket.emit('welcome', { message: 'Welcome!' });
 
     socket.on('i am client', console.log);
+    socket.on('publicmsg', function(message){
+        console.log(message.sender);
+        console.log(message.message);
+    });
 });
 
 var allowCrossDomain = function(req, res, next) {
