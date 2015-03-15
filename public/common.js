@@ -57,7 +57,7 @@
                         });
                         if(point.transport_type=="tram")
                             map.addMarker({
-                                title: 'Bus ' + point.line.toString(),
+                                title: 'Tram ' + point.line.toString(),
                                 lng: point.location[1],
                                 lat: point.location[0],
                                 icon: 'tram.png'
