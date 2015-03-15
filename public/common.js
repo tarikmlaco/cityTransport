@@ -8,7 +8,7 @@
       });
     var socket = io.connect(window.location.host/* + ':3000'*/);
     socket.on('welcome', function(data) {
-                $('#chatmsg').append('<li>' + data.message + '</li>');
+                $('#messages').append('<li>' + data.message + '</li>');
 
                 socket.emit('i am client', {data: 'foo!'});
             });
@@ -52,25 +52,28 @@
     });
   
     });
+    setInterval(function(){
+      $.post(window.location +"api/messages",
+      {
+          longitude: 43.84248732,
+          latitude: 18.31453474
+      },
+      function(data, status){
+//        console.log("Data: " + data + "\nStatus: " + status);
+          if(data!=undefined){
+              $('#messages ul').html('');
+              data.forEach(function(message){
+                  $('#messages ul').append('<li>' + message.message + ' ' + message._id + '</li>');
+              });
+          }
+      });}, 5000);
+
+
   $('#myButton2').click(function(e) {
       
     e.preventDefault();
   
-  $.post(window.location +"api/messages",
-    {
-        longitude: 43.84248732,
-        latitude: 18.31453474
-    },
-    function(data, status){
-//        console.log("Data: " + data + "\nStatus: " + status);
-    if(data!=undefined){
-      $('#chatmsg').html('');
-      data.forEach(function(message){
-        $('#chatmsg').append('<li>' + message.message + '</li>');
-      });
-      }
-      setInterval(function(){}, 5000);
-    });
+
 
     
     });
