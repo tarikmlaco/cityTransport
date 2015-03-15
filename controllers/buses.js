@@ -42,6 +42,7 @@ exports.getBus = function(req, res) {
 
 // Create endpoint for PUT
 exports.putBus = function(req, res) {
+    console.log("request for put");
     Beer.find({line: req.body.line}, function(err, bus) {
         if (err)
             res.send(err);
