@@ -18,7 +18,7 @@
         lat: -12.043333,
         lng: -77.028333
       });
-	  var socket = io.connect('http://localhost:3000');
+	  var socket = io.connect(window.location.host + ':3000');
 	  socket.on('welcome', function(data) {
                 $('#chatmsg').append('<li>' + data.message + '</li>');
 
@@ -35,7 +35,7 @@
       
 	  e.preventDefault();
 	
-	$.post("http://localhost:3000/api/buses",
+	$.post(window.location + "api/buses",
     {
         longitude: 43.84248732,
         latitude: 18.31453474
@@ -55,7 +55,7 @@
 					icon: 'bus.png'
 				});
 			});
-			};
+			}
 			setInterval(function(){
 			//console.log('Timeout ended!');
 			}, 5000);
@@ -68,7 +68,7 @@
       
 	  e.preventDefault();
 	
-	$.post("http://localhost:3000/api/messages",
+	$.post(window.location +"api/messages",
     {
         longitude: 43.84248732,
         latitude: 18.31453474
@@ -80,7 +80,7 @@
 			data.forEach(function(message){
 				$('#chatmsg').append('<li>' + message.message + '</li>');
 			});
-			};
+			}
 			setInterval(function(){}, 5000);
     });
 

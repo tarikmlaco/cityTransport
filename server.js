@@ -1,9 +1,10 @@
 // Load required packages
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var busController = require('./controllers/buses');
-var messageController = require('./controllers/messages');
+var express = require('express'),
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser'),
+    busController = require('./controllers/buses'),
+    messageController = require('./controllers/messages'),
+    path = require('path');
 
 // Connect to the cityOS MongoDB
 mongoose.connect('mongodb://localhost:27017/cityos', function(err, data){
@@ -47,6 +48,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(allowCrossDomain);
+app.use(express.static(path.join(__dirname, 'testing_frontend')));
 
 // Create our Express router
 var router = express.Router();
