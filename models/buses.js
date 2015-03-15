@@ -4,6 +4,7 @@
 var mongoose = require('mongoose');
 
 var BusSchema = new mongoose.Schema({
+    transporttype: String,
     line: Number,
     type: String,
     location: {0: Number, 1: Number}
