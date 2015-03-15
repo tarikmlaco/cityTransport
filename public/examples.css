@@ -85,12 +85,9 @@ footer ul li {
 
 #messages ul {
   width: 100%;
-  display: table;
-  table-layout: fixed;
 }
 
 #messages ul li {
-  display: table-cell;
   width: auto;
   text-align: center;
   border-bottom: 1px solid #eaeaea;
