@@ -63,7 +63,7 @@
           if(data!=undefined){
               $('#messages ul').html('');
               data.forEach(function(message){
-                  $('#messages ul').append('<li>' + message.message + ' ' + message._id + '</li>');
+                  $('#messages ul').append('<li id="'+message._id+'">' + message.message + '</li>');
               });
           }
       });}, 5000);
