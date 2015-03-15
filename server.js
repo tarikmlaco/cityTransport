@@ -67,8 +67,10 @@ var router = express.Router();
 
 router.route('/buses')
     .post(busController.postBuses)
-    .put(busController.putBus)
     .get(busController.getBuses);
+
+router.route('/buses/update')
+    .post(busController.putBus);
 
 
 router.route('/messages')
@@ -76,8 +78,7 @@ router.route('/messages')
 
 router.route('/dummy')
     .get(function(req,res){
-        console.log('Arduino call');
-        res.send('This is dummy data');
+        res.send('No. 2 in 3 mins');
     });
 
 // Register all our routes with /api
