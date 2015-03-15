@@ -82,6 +82,10 @@
     
     });
 
+  $('.messageremove').click(function(e){
+      console.log("")
+  });
+
         $('form').submit(function(e){
             e.preventDefault();
             var contents = $('#usermsg').val();
