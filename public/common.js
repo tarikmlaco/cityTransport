@@ -30,7 +30,7 @@
           if(data!=undefined){
               $('#messages').html('');
               data.forEach(function(message){
-                  $('#messages').append('<p id="'+message._id+'">' + '<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove">X</button>');
+                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove" id="'+message._id+'">X</button>');
               });
           }
       });}, 5000);
