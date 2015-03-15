@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(allowCrossDomain);
-app.use(express.static(path.join(__dirname, 'testing_frontend')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Create our Express router
 var router = express.Router();

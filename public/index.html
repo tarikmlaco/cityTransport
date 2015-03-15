@@ -18,7 +18,7 @@
         lat: -12.043333,
         lng: -77.028333
       });
-	  var socket = io.connect(window.location.host + ':3000');
+	  var socket = io.connect(window.location.host/* + ':3000'*/);
 	  socket.on('welcome', function(data) {
                 $('#chatmsg').append('<li>' + data.message + '</li>');
 
