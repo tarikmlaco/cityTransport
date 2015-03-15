@@ -93,15 +93,11 @@ footer ul li {
   margin-top: 5px;
 }
 
-#messages user {
+#messages {
   display: inline;
 }
 
 #messages messagebody {
   text-align: justify;
   border-bottom: 1px solid #eaeaea;
-}
-
-#messages messageremove {
-  display: inline;
 }
