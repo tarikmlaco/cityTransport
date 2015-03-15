@@ -63,7 +63,7 @@
           if(data!=undefined){
               $('#messages').html('');
               data.forEach(function(message){
-                  $('#messages').append('<p id="'+message._id+'">' + message.user  + ': ' + message.message + '</p>');
+                  $('#messages').append('<p id="'+message._id+'">' + '<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove">X</button>');
               });
           }
       });}, 5000);
