@@ -48,12 +48,20 @@
                     map.removeMarkers();
                     data.forEach(function(point){
                         console.log(point.line + ' ' + point.location[1] + ' ' + point.location[0] + '\n');
+                        if(point.transport_type == "bus")
                         map.addMarker({
                             title: 'Bus ' + point.line.toString(),
                             lng: point.location[1],
                             lat: point.location[0],
                             icon: 'bus.png'
                         });
+                        if(point.transport_type=="tram")
+                            map.addMarker({
+                                title: 'Bus ' + point.line.toString(),
+                                lng: point.location[1],
+                                lat: point.location[0],
+                                icon: 'tram.png'
+                            });
                     });
                 }
                 setInterval(function(){
