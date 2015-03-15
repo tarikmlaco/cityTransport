@@ -83,12 +83,15 @@ footer ul li {
   margin-left: 15px;
 }
 
-#messages ul {
+#messages p {
   width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+  margin-top: 20px;
 }
 
-#messages ul li {
-  width: auto;
+#messagesglobal p {
+  width: 100%;
   text-align: center;
   border-bottom: 1px solid #eaeaea;
   margin-top: 20px;
