@@ -10,7 +10,6 @@ exports.postBuses = function(req, res) {
     var longitude = req.body.longitude;
     var latitude = req.body.latitude;
 
-    // Save the beer and check for errors
     Buses.find({location: {$near: [longitude, latitude], $maxDistance: 10/111.12 }},function(err, buses) {
         if (err)
             res.send(err);
@@ -43,16 +42,14 @@ exports.getBus = function(req, res) {
 
 // Create endpoint for PUT
 exports.putBus = function(req, res) {
-    // Use the Beer model to find a specific beer
     Beer.find({line: req.body.line}, function(err, bus) {
         if (err)
             res.send(err);
 
-        // Update the existing beer quantity
         bus.location[0] = req.body.latitude;
         bus.location[1] = req.body.longitude;
 
-        // Save the beer and check for errors
+        // Save the bus and check for errors
         bus.save(function(err) {
             if (err)
                 res.send(err);
