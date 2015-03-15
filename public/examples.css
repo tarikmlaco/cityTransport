@@ -50,3 +50,35 @@ body{
   border-right:16px solid transparent;
   border-bottom:16px solid #336699;
 }
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: center;
+  list-style: none;
+}
+
+footer ul li {
+  float: center;
+  margin-left: 15px;
+}
