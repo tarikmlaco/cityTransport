@@ -86,10 +86,14 @@ footer ul li {
 #messages p {
   width: 100%;
   margin-top: 5px;
+}
+
+user {
   border-bottom: 1px solid #eaeaea;
 }
 
 messagebody {
   text-align: justify;
   border-bottom: 3px solid #eaeaea;
+  font-style: italic;
 }
