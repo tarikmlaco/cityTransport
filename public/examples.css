@@ -88,11 +88,11 @@ footer ul li {
   margin-top: 5px;
 }
 
-user {
+#messages user {
   border-bottom: 1px solid #eaeaea;
 }
 
-messagebody {
+#messages messagebody {
   text-align: justify;
   border-bottom: 3px solid #eaeaea;
   font-style: italic;
