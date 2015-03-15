@@ -94,7 +94,7 @@ footer ul li {
 }
 
 #messages user {
-  text-align: left
+  display: inline;
 }
 
 #messages messagebody {
@@ -103,5 +103,5 @@ footer ul li {
 }
 
 #messages messageremove {
-  float: right;
+  display: inline;
 }
