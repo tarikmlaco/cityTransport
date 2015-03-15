@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GMaps.js Testing Application</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script src='socket.io.js'></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="gmaps.js"></script>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="examples.css" />
+  <script type="text/javascript">
+    var map;
+
+    $(document).ready(function(){
+      map = new GMaps({
+        el: '#map',
+        lat: -12.043333,
+        lng: -77.028333
+      });
+	  var socket = io.connect('http://localhost:3000');
+	  socket.on('welcome', function(data) {
+                $('#chatmsg').append('<li>' + data.message + '</li>');
+
+                socket.emit('i am client', {data: 'foo!'});
+            });
+      socket.on('time', function(data) {
+                console.log(data);
+                $('#messages').append('<li>' + data.time + '</li>');
+            });
+      socket.on('error', function() { console.error(arguments) });
+      socket.on('message', function() { console.log(arguments) });		
+	  
+	$('#myButton').click(function(e) {
+      
+	  e.preventDefault();
+	
+	$.post("http://localhost:3000/api/buses",
+    {
+        longitude: 43.84248732,
+        latitude: 18.31453474
+    },
+    function(data, status){
+		map.setCenter(43.84248732, 18.31453474);
+		map.addMarker({lat: 43.84248732, lng: 18.31453474});
+        console.log("Data: " + data + "\nStatus: " + status);
+		if(data!=undefined){
+			map.removeMarkers();
+			data.forEach(function(point){
+				console.log(point.line + ' ' + point.location[1] + ' ' + point.location[0] + '\n');
+				map.addMarker({
+					title: 'Bus ' + point.line.toString(),
+					lng: point.location[1],
+					lat: point.location[0],
+					icon: 'bus.png'
+				});
+			});
+			};
+			setInterval(function(){
+			//console.log('Timeout ended!');
+			}, 5000);
+//		console.log(data.coords.lat);
+//		console.log(data.coords.long);
+		});
+	
+    });
+	$('#myButton2').click(function(e) {
+      
+	  e.preventDefault();
+	
+	$.post("http://localhost:3000/api/messages",
+    {
+        longitude: 43.84248732,
+        latitude: 18.31453474
+    },
+    function(data, status){
+//        console.log("Data: " + data + "\nStatus: " + status);
+		if(data!=undefined){
+			$('#chatmsg').html('');
+			data.forEach(function(message){
+				$('#chatmsg').append('<li>' + message.message + '</li>');
+			});
+			};
+			setInterval(function(){}, 5000);
+    });
+
+		
+    });
+	
+	
+	
+	});
+  </script>
+</head>
+<body>
+  <h1>GMaps testing frontend</h1>
+  <div class="row">
+    <div class="span11">
+      <div id="map"></div>
+    </div>
+	<ul id='chatmsg'></ul>
+	<button id="myButton">Where's My Bus?</button>
+	<button id="myButton2">Status Report!</button>
+  </div>
+</body>
+</html>
