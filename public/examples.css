@@ -86,13 +86,10 @@ footer ul li {
 #messages p {
   width: 100%;
   margin-top: 5px;
-}
-
-#messages p user {
   border-bottom: 1px solid #eaeaea;
 }
 
-#messages p messagebody {
+messagebody {
   text-align: justify;
-  border-bottom: 2px solid #eaeaea;
+  border-bottom: 3px solid #eaeaea;
 }
