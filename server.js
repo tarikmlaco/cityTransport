@@ -18,10 +18,11 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 // Send current time to all connected clients
+/*
 function sendTime() {
     io.sockets.emit('time', { time: new Date().toJSON() });
 }
-
+*/
 // Send current time every 10 secs
 //setInterval(sendTime, 10000);
 
@@ -38,7 +39,7 @@ var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     next();
-}
+};
 
 // Use the body-parser package in our application
 app.use(bodyParser.urlencoded({
@@ -71,4 +72,4 @@ app.use('/api', router);
 
 // Start the server
 server.listen(3000);
-//app.listen(3000); Deprecated because of
+//app.listen(3000); Deprecated because of socket.io
