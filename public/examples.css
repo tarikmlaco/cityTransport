@@ -85,14 +85,26 @@ footer ul li {
 
 #messages p {
   width: 100%;
-  text-align: center;
+  text-align: justify;
   border-bottom: 1px solid #eaeaea;
   margin-top: 20px;
 }
 
 #messagesglobal p {
   width: 100%;
-  text-align: center;
+  text-align: justify;
   border-bottom: 1px solid #eaeaea;
   margin-top: 20px;
+}
+
+#messages user {
+  text-align: left;
+}
+
+#messages messagebody {
+  text-align: justify;
+}
+
+#messages messageremove {
+  float: right;
 }
