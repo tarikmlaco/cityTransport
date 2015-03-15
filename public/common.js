@@ -30,7 +30,11 @@
           if(data!=undefined){
               $('#messages').html('');
               data.forEach(function(message){
-                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove" id="'+message._id+'">X</button>');
+//                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove" id="'+message._id+'">X</button>');
+                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p>');
+                  $('.messageremove').click(function(e){
+                      console.log("ID:" + this.id);
+                  });
               });
           }
       });}, 5000);
@@ -82,9 +86,7 @@
     
     });
 
-  $('.messageremove').click(function(e){
-      console.log("")
-  });
+
 
         $('form').submit(function(e){
             e.preventDefault();

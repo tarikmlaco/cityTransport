@@ -33,8 +33,15 @@ io.sockets.on('connection', function(socket) {
 
     socket.on('i am client', console.log);
     socket.on('publicmsg', function(message){
-        console.log(message.sender);
-        console.log(message.message);
+        /*console.log(message.sender);
+        console.log(message.message);*/
+        var data = new Object();
+        data.user = message.sender;
+        data.message = message.message;
+        data.latitude = 43.831907;
+        data.longitude = 18.485153;
+        messageController.socketAddMessage(data);
+
     });
 });
 
@@ -65,7 +72,7 @@ router.route('/buses')
 
 
 router.route('/messages')
-    .post(messageController.postMessages);
+    .post(messageController.receiveMessages);
 
 router.route('/dummy')
     .get(function(req,res){
