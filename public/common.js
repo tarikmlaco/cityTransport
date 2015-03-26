@@ -31,7 +31,7 @@
               $('#messages').html('');
               data.forEach(function(message){
 //                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p><button class="messageremove" id="'+message._id+'">X</button>');
-                  $('#messages').append('<p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p>');
+                  $('#messages').append('<div class="whole"><p class="user">'+message.user  +'</p>'+ '<p class="messagebody">' + message.message + '</p></div>');
                   $('.messageremove').click(function(e){
                       console.log("ID:" + this.id);
                   });
@@ -91,10 +91,12 @@
         $('form').submit(function(e){
             e.preventDefault();
             var contents = $('#usermsg').val();
+            var usrname = $('#userid').val();
             if(contents!=""&&contents!=undefined){
-                socket.emit('publicmsg', {sender: 'anonymous', message: contents});
+                socket.emit('publicmsg', {sender: usrname, message: contents});
             }
             $('#usermsg').val("");
+            $('#userid').val("");
         });
 
 

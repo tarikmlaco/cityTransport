@@ -14,18 +14,21 @@
 </head>
 <body>
   
-    <h1 class="text-center">OnTime</h1>
-    
+    <!--<h1 class="text-center">OnTime</h1>-->
+
+
     <div class="row">
 
       <div class="col-md-9">
+      <div class="overlay"><img src="ontimewhite.png"></div>
         <div id="map"></div>
       </div>
 
       <div class="col-md-3">
-        <div id="messages"></div>
+        <div id="messages" width="100%"></div>
         <form action="">
-            <input id="usermsg" autocomplete="off" /><button>Shout!</button>
+            <input type = "text" id="userid" autocomplete="off" size="5" />
+            <input type = "text" id="usermsg" autocomplete="off" /><button>Shout!</button>
         </form>
       </div>
 
