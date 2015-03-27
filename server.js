@@ -2,8 +2,8 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    busController = require('./controllers/buses'),
     messageController = require('./controllers/messages'),
+    router = require('./routes'),
     path = require('path');
 
 // Connect to the cityOS MongoDB
@@ -61,25 +61,29 @@ app.use(bodyParser.urlencoded({
 app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Create our Express router
-var router = express.Router();
-
-
-router.route('/buses')
-    .post(busController.postBuses)
-    .get(busController.getBuses);
-
-router.route('/buses/update')
-    .post(busController.putBus);
-
-
-router.route('/messages')
-    .post(messageController.receiveMessages);
-
-router.route('/dummy')
-    .get(function(req,res){
-        res.send('No. 2 in 3 mins');
-    });
+//// Create our Express router
+//var router = express.Router();
+//
+//
+//router.route('/buses')
+//    .post(busController.postBuses)
+//    .get(busController.getBuses);
+//
+//router.route('/buses/update')
+//    .post(busController.putBus);
+//
+//
+//router.route('/messages')
+//    .post(messageController.receiveMessages);
+//
+//router.route('/users')
+//    .post(userController.postUsers)
+//    .get(userController.getUsers);
+//
+//router.route('/dummy')
+//    .get(function(req,res){
+//        res.send('No. 2 in 3 mins');
+//    });
 
 // Register all our routes with /api
 app.use('/api', router);

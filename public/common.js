@@ -88,7 +88,7 @@
 
 
 
-        $('form').submit(function(e){
+        $('#shoutbtn').click(function(e){
             e.preventDefault();
             var contents = $('#usermsg').val();
             var usrname = $('#userid').val();
@@ -96,7 +96,6 @@
                 socket.emit('publicmsg', {sender: usrname, message: contents});
             }
             $('#usermsg').val("");
-            $('#userid').val("");
         });
 
 
