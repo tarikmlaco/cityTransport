@@ -61,33 +61,8 @@ app.use(bodyParser.urlencoded({
 app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
 
-//// Create our Express router
-//var router = express.Router();
-//
-//
-//router.route('/buses')
-//    .post(busController.postBuses)
-//    .get(busController.getBuses);
-//
-//router.route('/buses/update')
-//    .post(busController.putBus);
-//
-//
-//router.route('/messages')
-//    .post(messageController.receiveMessages);
-//
-//router.route('/users')
-//    .post(userController.postUsers)
-//    .get(userController.getUsers);
-//
-//router.route('/dummy')
-//    .get(function(req,res){
-//        res.send('No. 2 in 3 mins');
-//    });
-
 // Register all our routes with /api
 app.use('/api', router);
 
 // Start the server
 server.listen(3000);
-//app.listen(3000); Deprecated because of socket.io

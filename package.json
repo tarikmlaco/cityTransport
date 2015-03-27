@@ -6,6 +6,8 @@
     "mongoose": "^3.8.8",
     "body-parser": "^1.0.2",
     "socket.io": "*",
-    "bcrypt-nodejs": "*"
+    "bcrypt-nodejs": "*",
+    "passport": "*",
+    "passport-http": "*"
   }
 }

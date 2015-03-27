@@ -25,11 +25,17 @@
       </div>
 
       <div class="col-md-3">
-        <div id="messages" width="100%"></div>
+        <div id="messages"></div>
 
-        <div class="form-group">
-            <input type = "text" class= "form-control" id="userid" autocomplete="off"/>
-            <input type = "text" class= "form-control" id="usermsg" autocomplete="off"/><button class="form-control" id="shoutbtn">Shout!</button>
+      <div class="input-group">
+          <input type="text" class="form-control" id="userid" autocomplete="off" placeholder="Username...">
+      </div>
+
+        <div class="input-group">
+            <input type="text" class="form-control" id="usermsg" autocomplete="off" placeholder="Your message...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" id="shoutbtn">Shout!</button>
+            </span>
         </div>
       </div>
 
