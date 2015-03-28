@@ -5,6 +5,7 @@ var express = require('express'),
     busController = require('./controllers/buses'),
     userController = require('./controllers/user'),
     messageController = require('./controllers/messages'),
+    authController = require('./controllers/auth'),
     router = express.Router();
 
 
@@ -21,7 +22,7 @@ router.route('/messages')
 
 router.route('/users')
     .post(userController.postUsers)
-    .get(userController.getUsers);
+    .get(authController.isAuthenticated, userController.getUsers);
 
 router.route('/dummy')
     .get(function(req,res){

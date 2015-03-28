@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     messageController = require('./controllers/messages'),
     router = require('./routes'),
+    passport=require('passport'),
     path = require('path');
 
 // Connect to the cityOS MongoDB
@@ -57,6 +58,8 @@ var allowCrossDomain = function(req, res, next) {
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use(passport.initialize());
 
 app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
