@@ -8,6 +8,7 @@
     "socket.io": "*",
     "bcrypt-nodejs": "*",
     "passport": "*",
-    "passport-http": "*"
+    "passport-http": "*",
+    "rand-token": "*"
   }
 }

@@ -7,6 +7,7 @@ var BusSchema = new mongoose.Schema({
     transport_type: String,
     line: Number,
     type: String,
+    token: String,
     location: {0: Number, 1: Number}
 });
 

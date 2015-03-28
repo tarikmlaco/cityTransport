@@ -33,14 +33,14 @@
         $(document).ready(function(){
             $('form').submit(function(e){
                 e.preventDefault();
-//                console.log('Post call!');
+
                 $.post("/api/users",
                         {
                             username: $('#inputUsername').val(),
                             password: $('#inputPassword').val()
                         },function(data, status){
                             if(data!=undefined)
-                                $('#statusLine').html('Registration successful!');
+                                $('#statusLine').html(data.message);
                             else
                             $('#statusLine').html('Error!');
 
