@@ -64,6 +64,11 @@ app.use(passport.initialize());
 app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/register', function(req, res){
+    res.redirect('register.html');
+});
+
+
 // Register all our routes with /api
 app.use('/api', router);
 

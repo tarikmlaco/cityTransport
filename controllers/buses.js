@@ -32,7 +32,7 @@ exports.getBuses = function(req, res) {
 };
 
 exports.getBus = function(req, res) {
-    Beer.findById(req.params.beer_id, function(err, beer) {
+    Buses.findById(req.params.beer_id, function(err, beer) {
         if (err)
             res.send(err);
 
@@ -43,9 +43,12 @@ exports.getBus = function(req, res) {
 // Create endpoint for PUT
 exports.putBus = function(req, res) {
     console.log("request for put");
-    Beer.find({line: req.body.line}, function(err, bus) {
-        if (err)
+    console.log('Parameters: ' + req.body.line + ' ' + req.body.latitude + ' ' + req.body.longitude);
+    Buses.findOne({line: req.body.line}, function(err, bus) {
+        if (err){
             res.send(err);
+            console.log(err);
+        }
 
         bus.location[0] = req.body.latitude;
         bus.location[1] = req.body.longitude;
