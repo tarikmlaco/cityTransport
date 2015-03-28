@@ -24,6 +24,12 @@ router.route('/users')
     .post(userController.postUsers)
     .get(authController.isAuthenticated, userController.getUsers);
 
+router.route('/users/login')
+    .post(userController.loginUser);
+
+router.route('/users/logout')
+    .post(userController.logoutUser);
+
 router.route('/dummy')
     .get(function(req,res){
         res.send('No. 2 in 3 mins');

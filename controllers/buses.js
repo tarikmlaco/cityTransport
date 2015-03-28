@@ -56,7 +56,6 @@ exports.putBus = function(req, res) {
         bus.save(function(err) {
             if (err)
                 res.send(err);
-
             res.json(bus);
         });
     });

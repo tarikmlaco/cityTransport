@@ -36,6 +36,48 @@ exports.postUsers = function(req, res){
     });
 };
 
+exports.loginUser = function(req, res){
+    User.findOne({username: req.body.username}, function(err, user){
+        if(err)
+        res.send(err);
+        user.verifyPassword(req.body.password, function(err, isMatch){
+            if(err)
+            res.json({error: err});
+            if(!isMatch) {
+                res.json({error: 'Wrong password!'});
+                console.log('Wrong password!');
+            }
+            else
+            {
+                Buses.findOne({token: user.token}, function(err, bus){
+                    if(err)
+                    res.json({error: err});
+                    res.json({token: bus.token, flag: 1});
+                });
+            }
+        });
+    });
+};
+
+exports.logoutUser=function(req, res){
+    User.findOne({username: req.body.username}, function(err, user){
+        if(err)
+        res.send(err);
+        user.verifyPassword(req.body.password, function(err, isMatch){
+            if(err)
+                res.json({error: err});
+            if(!isMatch) {
+                res.json({error: 'Wrong password!'});
+                console.log('Wrong password!');
+            }
+            else
+            {
+                res.send('User logged out!');
+            }
+        });
+    });
+};
+
 exports.getUsers = function(req, res){
     User.find(function(err, users){
         if(err)
