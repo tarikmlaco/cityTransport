@@ -42,9 +42,8 @@ exports.getBus = function(req, res) {
 
 // Create endpoint for PUT
 exports.putBus = function(req, res) {
-    console.log("request for put");
-    console.log('Parameters: ' + req.body.line + ' ' + req.body.latitude + ' ' + req.body.longitude);
-    Buses.findOne({line: req.body.line}, function(err, bus) {
+    console.log('Parameters: ' + req.body.token + ' ' + req.body.latitude + ' ' + req.body.longitude);
+    Buses.findOne({token: req.body.token}, function(err, bus) {
         if (err){
             res.send(err);
             console.log(err);
