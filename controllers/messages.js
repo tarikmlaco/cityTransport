@@ -9,7 +9,7 @@ exports.receiveMessages= function(req, res) {
     var longitude = req.body.longitude;
     var latitude = req.body.latitude;
 
-    Messages.find(/*{location: {$near: [longitude, latitude], $maxDistance: 10/111.12 }}*/).limit(10).sort({ _id: -1 }).exec(function(err, msgs){
+    Messages.find({location: {$near: [longitude, latitude], $maxDistance: 10/111.12 }}).limit(10).sort({ _id: -1 }).exec(function(err, msgs){
         if (err)
             res.send(err);
 
