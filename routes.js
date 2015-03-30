@@ -20,6 +20,9 @@ router.route('/buses/update')
 router.route('/messages')
     .post(messageController.receiveMessages);
 
+router.route('/messages/post')
+    .post(messageController.postMessages);
+
 router.route('/users')
     .post(userController.postUsers)
     .get(authController.isAuthenticated, userController.getUsers);

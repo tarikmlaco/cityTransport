@@ -2,6 +2,7 @@
  * Created by Tarik on 14.3.2015.
  */
 var Messages = require('../models/messages');
+var User = require('../models/users');
 
 exports.receiveMessages= function(req, res) {
 
@@ -22,15 +23,22 @@ exports.postMessages= function(req, res){
 
     myMsg.location[1] = req.body.longitude;
     myMsg.location[0] = req.body.latitude;
-    myMsg.user = req.body.user;
     myMsg.message = req.body.message;
     myMsg.rating = 0;
-
-    myMsg.save(function(err){
+    User.findOne({token: req.body.token}, function(err, user){
         if(err)
-        console.log("error:"+err);
-        console.log("message added")
+        res.send(err);
+        else {
+            myMsg.user = user.username;
+            myMsg.save(function (err) {
+                if (err)
+                    console.log("error:" + err);
+                console.log("message added");
+                res.send('Message added');
+            });
+        }
     });
+
 
 };
 
@@ -49,6 +57,8 @@ exports.socketAddMessage = function(data){
         console.log("message added")
     });
 }
+
+
 
 
 
