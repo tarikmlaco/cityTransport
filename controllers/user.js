@@ -12,6 +12,7 @@ exports.postUsers = function(req, res){
         token: uid(16)
     });
 
+    if(req.body.secret=="10031992")
     var bus= new Buses({
         transport_type: 'bus',
         line: 0,
@@ -20,19 +21,30 @@ exports.postUsers = function(req, res){
         location: {0: 0, 1: 0}
     });
 
+    if(req.body.secret=="12041992")
+        var bus= new Buses({
+            transport_type: 'tram',
+            line: 0,
+            type: 'Point',
+            token: user.token,
+            location: {0: 0, 1: 0}
+        });
+
     user.save(function(err){
         if(err) {
             res.json({message: 'Error creating user, username probably exists.'});
             console.log(err);
         }
         else
+            if(bus!=undefined)
             bus.save(function(err){
                 if(err)
-                res.json({message: 'Error creating user, cannot save vehicle.'});
+                res.json({message: 'Error saving vehicle! Token: ' + user.token, token: user.token});
                 else
                 res.json({message: 'New user has been added! Token: ' + user.token, token: user.token});
-            })
-
+            });
+            else
+            res.json({message: 'Pedestrian user saved! Token: ' + user.token, token: user.token});
     });
 };
 

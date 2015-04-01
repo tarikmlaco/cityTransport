@@ -37,7 +37,8 @@
                 $.post("/api/users",
                         {
                             username: $('#inputUsername').val(),
-                            password: $('#inputPassword').val()
+                            password: $('#inputPassword').val(),
+                            secret: $('#inputSecret').val()
                         },function(data, status){
                             if(data!=undefined)
                                 $('#statusLine').html(data.message);
@@ -60,6 +61,8 @@
         <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="inputSecret" class="sr-only">Secret</label>
+        <input type="text" id="inputSecret" class="form-control" placeholder="Secret">
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
