@@ -63,7 +63,7 @@ exports.putBus = function(req, res) {
 
 // Create endpoint /api/mycoord/:bus_id for DELETE
 exports.deleteBus = function(req, res) {
-    Beer.findByIdAndRemove(req.params.bus_id, function(err) {
+    Buses.findByIdAndRemove(req.params.bus_id, function(err) {
         if (err)
             res.send(err);
 
